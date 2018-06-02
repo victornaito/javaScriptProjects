@@ -20,6 +20,10 @@ class CalcController {
 		}, 1000)
 	}
 
+	initButtonsEvents(){
+		document.querySelectorAll("#buttons > g, #parts > g") // Pega TODOS os filhos da classe buttons que sejam g
+	}
+
 	setDisplayDateTime(){
 		this._dateEl.innerHTML = this.currentDate.toLocaleDateString(this._locale, {
 			day: "2-digit",

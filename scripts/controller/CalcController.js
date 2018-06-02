@@ -21,16 +21,27 @@ class CalcController {
 		}, 1000)
 	}
 
+
+	addEventListenerAll(element, events, fn){
+
+		events.split(' ').forEach(event => {
+			element.addEventListener(event, fn, false)
+		})
+	}
+
 	initButtonsEvents(){
 		let buttons = document.querySelectorAll("#buttons > g, #parts > g") // Pega TODOS os filhos da classe buttons que sejam g
 
 		buttons.forEach((btn,index) => {
 			
-			btn.addEventListener('click', (e) => {
+			this.addEventListenerAll(btn, 'click drag mouseover', (e) => {
 				console.log(btn.className.baseVal.replace("btn-", ""))
 			})
-		})
 
+			this.addEventListenerAll(btn, 'click drag mouseover', (e) => {
+				btn.style.cursor = "pointer"
+			})
+		})
 		
 	}
 
